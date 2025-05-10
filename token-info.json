@@ -1,0 +1,12 @@
+{
+  "tokenAddress": "FKkToJHvhU24f5KB3Ljh8bsBQ7wT7PAqM5AcTXXwPpBe",
+  "adminTokenAccount": "2KHchzZTPzN7fcX5atF7Avh3G7g6DWTvYPcT7oASa3zK",
+  "decimals": 9,
+  "adminPublicKey": "AcXiZ6WVQ9hAfnCdTXSNae3NWxNGMBNn5uhHqpY2c98w",
+  "network": "devnet",
+  "metadata": {
+    "name": "LE",
+    "symbol": "LE",
+    "uri": "https://arweave.net/YOUR_UPLOADED_IMAGE_LINK"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "LE",
+  "symbol": "LE",
+  "description": "LE是一个基于Solana区块链的积分代币系统，用于奖励社区活动和参与",
+  "image": "https://arweave.net/YOUR_UPLOADED_IMAGE_LINK",
+  "attributes": [
+    {
+      "trait_type": "类型",
+      "value": "积分代币"
+    },
+    {
+      "trait_type": "用途",
+      "value": "社区奖励"
+    }
+  ]
+}

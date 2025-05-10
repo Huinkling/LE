@@ -1,0 +1,27 @@
+{
+  "name": "le-token",
+  "version": "1.0.0",
+  "description": "$LE Token - Solana积分与代币系统",
+  "main": "scripts/deploy_with_metadata.js",
+  "scripts": {
+    "deploy": "node scripts/deploy_with_metadata.js",
+    "simple-deploy": "node scripts/simple_deploy.js",
+    "add-metadata": "node scripts/add_metadata.js",
+    "distribute": "node scripts/distribute_tokens.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.78.0",
+    "@solana/spl-token": "^0.3.8",
+    "@metaplex-foundation/mpl-token-metadata": "^2.13.0",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
+  },
+  "keywords": [
+    "solana",
+    "blockchain",
+    "token",
+    "cryptocurrency"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,25 @@
+{
+  // 代币名称 - 显示在钱包和浏览器中的名称
+  "name": "LE",
+  
+  // 代币符号 - 简短的标识，类似股票代码
+  "symbol": "LE",
+  
+  // 代币描述 - 说明代币的用途和功能
+  "description": "LE是一个基于Solana区块链的积分代币系统，用于奖励社区活动和参与",
+  
+  // 代币图标 - 指向图标文件的路径或URL
+  "image": "https://arweave.net/YOUR_UPLOADED_IMAGE_LINK",
+  
+  // 代币属性 - 提供额外的分类和信息
+  "attributes": [
+    {
+      "trait_type": "类型",
+      "value": "积分代币"
+    },
+    {
+      "trait_type": "用途",
+      "value": "社区奖励"
+    }
+  ]
+} 
