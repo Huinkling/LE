@@ -169,6 +169,10 @@ cargo run --bin le_api
 ```
 POST /api/register
 ```
+Body:
+```json
+{ "user_id": "your_id" }
+```
 
 ### 每日签到
 

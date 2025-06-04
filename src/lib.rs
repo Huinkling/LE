@@ -143,7 +143,8 @@ pub fn process_instruction(
             let mut user_account = UserAccount::try_from_slice(&account.data.borrow())?;
             
             // Get referred user pubkey from instruction data
-            let referred_pubkey = Pubkey::new_from_array(*<&[u8; 32]>::try_from(&instruction_data[1..33]).unwrap());
+            let referred_pubkey =
+                Pubkey::new_from_array(instruction_data[1..33].try_into().unwrap());
             
             // Check if user already referred
             if !user_account.referrals.contains(&referred_pubkey) {

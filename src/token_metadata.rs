@@ -7,7 +7,7 @@ use solana_program::{
     msg,
     program_error::ProgramError,
     pubkey::Pubkey,
-    program::{invoke, invoke_signed},
+    program::invoke,
     system_instruction,
     sysvar::{rent::Rent, Sysvar},
 };
@@ -35,7 +35,7 @@ pub fn create_metadata_account(
     
     // 获取必要的账户
     let metadata_account = next_account_info(account_info_iter)?;
-    let mint_account = next_account_info(account_info_iter)?;
+    let _mint_account = next_account_info(account_info_iter)?;
     let mint_authority = next_account_info(account_info_iter)?;
     let payer = next_account_info(account_info_iter)?;
     let system_program = next_account_info(account_info_iter)?;
