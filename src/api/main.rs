@@ -1,10 +1,7 @@
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
 use serde::{Deserialize, Serialize};
-use solana_sdk::{commitment_config::CommitmentConfig, pubkey::Pubkey, signature::Keypair};
+use solana_sdk::signature::Keypair;
 use solana_sdk::signer::Signer;
-use solana_sdk::transaction::Transaction;
-use solana_sdk::instruction::{AccountMeta, Instruction};
-use std::str::FromStr;
 use std::sync::Mutex;
 use std::collections::HashMap;
 use std::time::{SystemTime, UNIX_EPOCH};
@@ -35,6 +32,11 @@ struct UserData {
     pub ad_views_today: u8,
     pub referrals: Vec<String>,
     pub user_number: String, // 用户唯一编号，例如 #00001
+}
+
+#[derive(Deserialize)]
+struct RegisterRequest {
+    user_id: String,
 }
 
 #[derive(Serialize, Deserialize, Clone)]
@@ -411,7 +413,7 @@ async fn generate_qr_code(user_id: web::Path<String>, app_state: web::Data<AppSt
 }
 
 // Register a new user
-async fn register_user(data: web::Json<UserData>, app_state: web::Data<AppState>) -> impl Responder {
+async fn register_user(data: web::Json<RegisterRequest>, app_state: web::Data<AppState>) -> impl Responder {
     let mut users = app_state.users.lock().unwrap();
     let user_id = data.user_id.clone();
     
@@ -437,14 +439,14 @@ async fn register_user(data: web::Json<UserData>, app_state: web::Data<AppState>
     let mut id_to_number = app_state.user_id_to_number.lock().unwrap();
     id_to_number.insert(user_id.clone(), user_number.clone());
     
-    // 创建新用户数据
-    let mut user_data = UserData {
+    // 创建新用户数据，初始化默认值
+    let user_data = UserData {
         user_id: user_id.clone(),
         pubkey,
-        points: data.points,
-        last_check_in: data.last_check_in,
-        ad_views_today: data.ad_views_today,
-        referrals: data.referrals.clone(),
+        points: 0,
+        last_check_in: 0,
+        ad_views_today: 0,
+        referrals: Vec::new(),
         user_number: user_number.clone(),
     };
     

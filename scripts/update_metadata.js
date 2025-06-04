@@ -58,14 +58,15 @@ async function main() {
     const metadataPDA = await getMetadata(tokenMint);
     console.log(`元数据地址: ${metadataPDA.toString()}`);
     
-    // 设置新的元数据
-    const name = "LE";
-    const symbol = "LE";
-    
-    // 注意：这里需要将图标上传到Arweave或IPFS，然后使用返回的URL
-    // 示例URL使用的是一个公共可访问的图片地址，实际应用中您需要上传自己的图片
-    // 可以使用Arweave.app、Pinata或NFT.Storage等服务上传
-    const uri = "https://arweave.net/YOUR_UPLOADED_IMAGE_LINK";
+    // 从token-info.json获取新的元数据
+    if (!tokenInfo.metadata || !tokenInfo.metadata.uri) {
+      console.error('token-info.json 中缺少 metadata 信息');
+      process.exit(1);
+    }
+
+    const name = tokenInfo.metadata.name || 'LE';
+    const symbol = tokenInfo.metadata.symbol || 'LE';
+    const uri = tokenInfo.metadata.uri;
     
     console.log('更新元数据为:');
     console.log(`名称: ${name}`);

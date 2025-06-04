@@ -2,21 +2,16 @@
 
 use solana_program::{
     account_info::{next_account_info, AccountInfo},
-    entrypoint,
     entrypoint::ProgramResult,
     msg,
     program_error::ProgramError,
     pubkey::Pubkey,
-    program::{invoke, invoke_signed},
-    system_instruction,
-    sysvar::{rent::Rent, Sysvar},
 };
 // use solana_sdk::signature::Keypair;
 use std::convert::TryInto;
 
 // 导入代币元数据模块
-mod token_metadata;
-use token_metadata::{TokenMetadata, create_metadata_account, update_metadata};
+// use crate::token_metadata::{TokenMetadata, create_metadata_account, update_metadata};
 
 // 定义代币基本信息
 pub const TOKEN_NAME: &str = "$LE Token";

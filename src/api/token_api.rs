@@ -29,8 +29,8 @@ pub async fn get_token_info(app_state: web::Data<AppState>) -> impl Responder {
         explorer_url: String,
     }
     
-    // 格式化总供应量，添加千位分隔符
-    let formatted_supply = format!("{:,}", token_info.total_supply);
+    // 格式化总供应量（此处简化处理）
+    let formatted_supply = token_info.total_supply.to_string();
     
     // 获取当前网络（mainnet或devnet）
     let network = env::var("SOLANA_NETWORK").unwrap_or_else(|_| "devnet".to_string());
@@ -71,9 +71,9 @@ pub async fn get_token_info(app_state: web::Data<AppState>) -> impl Responder {
 // 兑换积分为代币（仅管理员可用）
 #[derive(Deserialize)]
 pub struct ExchangeRequest {
-    user_id: String,
-    admin_key: String,
-    points_amount: u64,
+    _user_id: String,
+    _admin_key: String,
+    _points_amount: u64,
 }
 
 pub async fn exchange_points_to_token(_data: web::Json<ExchangeRequest>, _app_state: web::Data<AppState>) -> impl Responder {

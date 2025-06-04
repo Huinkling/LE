@@ -43,14 +43,9 @@ NFT.Storage专为NFT内容设计，由Filecoin提供支持：
 
 获取图片永久链接后：
 
-1. 编辑`scripts/update_metadata.js`文件
-2. 找到`uri`变量（约第58行）
-3. 替换为您获得的永久链接URL：
-   ```javascript
-   const uri = "https://arweave.net/YOUR_UPLOADED_IMAGE_LINK"; // 替换此URL
-   ```
-4. 保存文件
-5. 运行`./update_metadata.sh`脚本更新代币元数据
+1. 打开`token-info.json`文件
+2. 在`metadata`字段中设置新的`name`、`symbol`和`uri`值
+3. 保存文件后运行`./update_metadata.sh`脚本更新代币元数据
 
 ## 验证
 
