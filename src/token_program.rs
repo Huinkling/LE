@@ -11,7 +11,7 @@ use solana_program::{
 use std::convert::TryInto;
 
 // 导入代币元数据模块
-// use crate::token_metadata::{TokenMetadata, create_metadata_account, update_metadata};
+use crate::token_metadata::{TokenMetadata, create_metadata_account, update_metadata};
 
 // 定义代币基本信息
 pub const TOKEN_NAME: &str = "$LE Token";
